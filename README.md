@@ -10,7 +10,7 @@ yarn
 
 ## Development
 
-Run on (localhost:8000)[http://localhost:8000]:
+Run on [localhost:8000](http://localhost:8000):
 
 ```
 yarn start
