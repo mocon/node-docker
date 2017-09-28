@@ -1,7 +1,5 @@
-const express = require('express');
-
+import express from 'express';
 import { getUser } from './helpers/github';
-
 const app = express();
 const PORT = 8000;
 

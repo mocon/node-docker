@@ -55,3 +55,10 @@ Run the Docker container called `node-docker` on port `8000`:
 ```
 yarn run docker-run
 ```
+
+To kill the container, from a new Terminal:
+
+```
+docker ps
+docker kill <uniqueId>
+```
