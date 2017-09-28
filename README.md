@@ -42,14 +42,16 @@ yarn run clean
 
 ## Docker
 
+The following commands require [Docker](https://www.docker.com/) to be installed.
+
 Build in a Docker container called `node-docker`:
 
 ```
-yarn run docker-build # Runs `docker build -t node-docker .`
+yarn run docker-build
 ```
 
 Run the Docker container called `node-docker` on port `8000`:
 
 ```
-yarn run docker-run # Runs `docker run -p 8000:8000 node-docker`
+yarn run docker-run
 ```
