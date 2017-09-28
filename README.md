@@ -42,14 +42,14 @@ yarn run clean
 
 ## Docker
 
-Build in a Docker container called `nodetest`:
+Build in a Docker container called `node-docker`:
 
 ```
-docker build -t nodetest .
+yarn run docker-build # Runs `docker build -t node-docker .`
 ```
 
-Run the Docker container called `nodetest` on port `8000`:
+Run the Docker container called `node-docker` on port `8000`:
 
 ```
-docker run -p 8000:8000 nodetest
+yarn run docker-run # Runs `docker run -p 8000:8000 node-docker`
 ```

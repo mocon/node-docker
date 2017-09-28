@@ -25,6 +25,8 @@
     "start": "nodemon src/index.js --exec babel-node",
     "build": "babel src -d dist",
     "serve": "node dist/index.js",
+    "docker-build": "docker build -t node-docker .",
+    "docker-run": "docker run -p 8000:8000 node-docker",
     "clean": "rm -rf node_modules && yarn cache clean && yarn"
   }
 }

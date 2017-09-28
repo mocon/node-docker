@@ -5,6 +5,7 @@ import { getUser } from './helpers/github';
 const app = express();
 const PORT = 8000;
 
+// Get a Github user by their handle
 app.get('/user/:handle', (req, res) => {
     const handle = req.params.handle;
 
