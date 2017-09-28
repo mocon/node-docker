@@ -2,7 +2,7 @@
   "name": "node-docker",
   "version": "1.0.0",
   "description": "Testing Node.js in a Docker container",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "engines": {
     "node": ">=8.6.0"
   },

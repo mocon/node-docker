@@ -14,6 +14,9 @@ RUN yarn install
 # Build
 RUN yarn build
 
+# Delete src
+RUN rm -rf src
+
 # Run
 EXPOSE 8000
 CMD yarn serve
