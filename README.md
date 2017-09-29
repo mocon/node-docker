@@ -62,3 +62,14 @@ To kill the container, from a new Terminal:
 docker ps
 docker kill <uniqueId>
 ```
+
+## Environment variables
+
+Pass the following environment variables when running `yarn start` or `yarn serve`:
+
+| Variable name | Description
+:--- | :---
+`TWILIO_ACCOUNT_SID` | Twilio account SID
+`TWILIO_AUTH_TOKEN` | Twilio auth token
+`PHONE_NUMBER_TWILIO` | Twilio account phone number, to send text messages from
+`PHONE_NUMBER_ME` | Phone number to send text messages to
