@@ -1,4 +1,4 @@
-# Use latest Node
+# Use official Node.js
 FROM node:8.6.0
 
 # Install yarn

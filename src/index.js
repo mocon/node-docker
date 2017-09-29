@@ -1,7 +1,11 @@
 import express from 'express';
 import { getUser } from './helpers/github';
+import { sendText } from './helpers/twilio';
+
 const app = express();
 const PORT = 8000;
+
+// TODO: Move routes into separate files and import them here
 
 // Get a Github user by their handle
 app.get('/user/:handle', (req, res) => {
@@ -21,6 +25,11 @@ app.get('/user/:handle', (req, res) => {
         .catch(err => {
             console.error(err);
         });
+});
+
+// TODO: Check for day and send text
+app.post('/send-text', (req, res) => {
+    sendText(1, 30);
 });
 
 app.listen(PORT, () => {

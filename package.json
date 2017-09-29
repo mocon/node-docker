@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "4.16.0",
-    "node-fetch": "1.7.3"
+    "node-fetch": "1.7.3",
+    "twilio": "3.7.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
