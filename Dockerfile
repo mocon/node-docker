@@ -7,6 +7,7 @@ RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 # Copy files
 COPY package.json .
 COPY .babelrc .
+COPY yarn.lock .
 COPY src ./src
 
 # Install dependencies
