@@ -7,7 +7,7 @@
     "node": ">=8.6.0"
   },
   "author": "Myles O'Connor <hello@myles.la>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "dependencies": {
     "express": "4.16.0",
     "node-fetch": "1.7.3",
