@@ -4,9 +4,9 @@ import schedule from 'node-schedule';
 
 import user from './routes/user';
 import sms from './routes/sms';
+import { PORT, LOCAL_API_BASE_URL } from './config';
 
 const app = express();
-import { PORT, LOCAL_API_BASE_URL } from './config';
 
 app.use('/user', user);
 app.use('/sms', sms);
