@@ -50,10 +50,10 @@ Build in a Docker container called `node-docker`:
 yarn run docker-build
 ```
 
-Run the Docker container called `node-docker` on port `8000`:
+Run the Docker container called `node-docker` on port `8000`, passing environment variables:
 
 ```
-yarn run docker-run
+docker run -e PHONE_NUMBER_TWILIO='+1xxxxxxxxxx' -e PHONE_NUMBER_ME='+1xxxxxxxxxx' -e TWILIO_ACCOUNT_SID='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' -e TWILIO_AUTH_TOKEN='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' -p 8000:8000 node-docker
 ```
 
 To kill the container, from a new Terminal:
