@@ -3,10 +3,12 @@ const router = express.Router();
 
 import { sendText } from '../helpers/twilio';
 
-router.route('/')
-    .post((req, res) => {
-        sendText(1, 30);
-        res.status(200).send('Sent text message.');
+router.route('/?')
+    .get((req, res) => {
+        const { currentDay, totalDays } = req.query;
+
+        sendText(currentDay, totalDays);
+        res.status(200).send(`Sent text message for day ${currentDay} of ${totalDays}.`);
     });
 
 export default router;
