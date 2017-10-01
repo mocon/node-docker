@@ -3,10 +3,12 @@ import fetch from 'node-fetch';
 import schedule from 'node-schedule';
 import * as admin from 'firebase-admin';
 import serviceAccount from '../serviceAccountKey.json'; // .gitignored
+import colour from 'colour'; // Color console strings
 
 import user from './routes/user';
 import sms from './routes/sms';
 import { localTime } from './helpers/time';
+import { clearConsole, prettyPrint } from './helpers/text';
 
 import {
     PORT,
@@ -15,6 +17,8 @@ import {
     FIREBASE_DATABASE_URL,
     FIREBASE_AUTH_OVERRIDE
 } from './config';
+
+clearConsole();
 
 // Firebase database
 admin.initializeApp({
@@ -26,7 +30,7 @@ admin.initializeApp({
 const db = admin.database();
 const ref = db.ref('/reminders');
 ref.once('value', (snapshot) => {
-    console.log('Database snapshot:', snapshot.val());
+    console.log('Database snapshot:'.green, prettyPrint(snapshot.val()));
 });
 
 // Express
