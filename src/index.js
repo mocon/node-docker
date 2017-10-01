@@ -4,7 +4,12 @@ import schedule from 'node-schedule';
 
 import user from './routes/user';
 import sms from './routes/sms';
-import { PORT, LOCAL_API_BASE_URL } from './config';
+
+import {
+    PORT,
+    LOCAL_API_BASE_URL,
+    UTC_OFFSET
+} from './config';
 
 const app = express();
 
@@ -15,10 +20,10 @@ app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}!`);
 });
 
-// Check for day and count, and send text
+// TODO: Put days into database
 let currentDay = 1;
 const totalDays = 30;
-const scheduledJob = schedule.scheduleJob({ hour: 7, minute: 30 }, () => {
+const scheduledJob = schedule.scheduleJob({ hour: 7 - UTC_OFFSET, minute: 30 }, () => {
     sendDailyText(currentDay, totalDays);
 });
 
