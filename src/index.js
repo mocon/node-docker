@@ -1,6 +1,8 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import schedule from 'node-schedule';
+import * as admin from 'firebase-admin';
+import serviceAccount from '../serviceAccountKey.json'; // .gitignored
 
 import user from './routes/user';
 import sms from './routes/sms';
@@ -9,9 +11,25 @@ import { localTime } from './helpers/time';
 import {
     PORT,
     LOCAL_API_BASE_URL,
-    UTC_OFFSET
+    UTC_OFFSET,
+    FIREBASE_DATABASE_URL,
+    FIREBASE_AUTH_OVERRIDE
 } from './config';
 
+// Firebase database
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: FIREBASE_DATABASE_URL,
+    databaseAuthVariableOverride: { uid: FIREBASE_AUTH_OVERRIDE }
+});
+
+const db = admin.database();
+const ref = db.ref('/reminders');
+ref.once('value', (snapshot) => {
+    console.log('Database snapshot:', snapshot.val());
+});
+
+// Express
 const app = express();
 
 app.use('/user', user);

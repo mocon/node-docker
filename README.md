@@ -18,6 +18,8 @@ Pass the following environment variables when running `yarn start` or `yarn run 
 `TWILIO_AUTH_TOKEN` | Twilio auth token
 `PHONE_NUMBER_TWILIO` | Twilio account phone number, to send text messages from
 `PHONE_NUMBER_ME` | Phone number to send text messages to
+`FIREBASE_DATABASE_URL` | Firebase database URL
+`FIREBASE_AUTH_OVERRIDE` | Key to override Firebase request config
 
 ## Development
 
@@ -28,6 +30,8 @@ PHONE_NUMBER_TWILIO=+1xxxxxxxxxx \
 PHONE_NUMBER_ME=+1xxxxxxxxxx \
 TWILIO_ACCOUNT_SID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
 TWILIO_AUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+FIREBASE_DATABASE_URL=https://xxxxxxxxxxxxxx.firebaseio.com \
+FIREBASE_AUTH_OVERRIDE=xxxxxxxxxx \
 yarn start
 ```
 
@@ -48,6 +52,8 @@ PHONE_NUMBER_TWILIO=+1xxxxxxxxxx \
 PHONE_NUMBER_ME=+1xxxxxxxxxx \
 TWILIO_ACCOUNT_SID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
 TWILIO_AUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+FIREBASE_DATABASE_URL=https://xxxxxxxxxxxxxx.firebaseio.com \
+FIREBASE_AUTH_OVERRIDE=xxxxxxxxxx \
 yarn run serve
 ```
 
@@ -77,6 +83,8 @@ docker run \
 -e PHONE_NUMBER_ME='+1xxxxxxxxxx' \
 -e TWILIO_ACCOUNT_SID='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
 -e TWILIO_AUTH_TOKEN='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+-e FIREBASE_DATABASE_URL='https://xxxxxxxxxxxxxx.firebaseio.com' \
+-e FIREBASE_AUTH_OVERRIDE='xxxxxxxxxx' \
 -p 8000:8000 node-docker
 ```
 
