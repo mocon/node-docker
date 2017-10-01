@@ -4,6 +4,7 @@ import schedule from 'node-schedule';
 
 import user from './routes/user';
 import sms from './routes/sms';
+import { localTime } from './helpers/time';
 
 import {
     PORT,
@@ -23,7 +24,9 @@ app.listen(PORT, () => {
 // TODO: Put days into database
 let currentDay = 1;
 const totalDays = 30;
-const scheduledJob = schedule.scheduleJob({ hour: 7 - UTC_OFFSET, minute: 30 }, () => {
+const alertTime = localTime(7, 30, UTC_OFFSET);
+
+const scheduledJob = schedule.scheduleJob(alertTime, () => {
     sendDailyText(currentDay, totalDays);
 });
 
