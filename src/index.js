@@ -1,3 +1,6 @@
+// Clear console
+process.stdout.write('\x1B[2J\x1B[0f');
+
 import express from 'express';
 import fetch from 'node-fetch';
 import schedule from 'node-schedule';
@@ -8,7 +11,7 @@ import colour from 'colour'; // Color console strings
 import user from './routes/user';
 import sms from './routes/sms';
 import { localTime } from './helpers/time';
-import { clearConsole, prettyPrint } from './helpers/text';
+import { prettyPrint } from './helpers/text';
 
 import {
     PORT,
@@ -17,8 +20,6 @@ import {
     FIREBASE_DATABASE_URL,
     FIREBASE_AUTH_OVERRIDE
 } from './config';
-
-clearConsole();
 
 // Firebase database
 admin.initializeApp({
