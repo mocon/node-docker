@@ -9,7 +9,7 @@ import moment from 'moment';
 
 import user from './routes/user';
 import sms from './routes/sms';
-import { remindersRef } from './helpers/firebase';
+import { remindersRef, addReminder } from './helpers/firebase';
 import { localTime } from './helpers/time';
 import { prettyPrint } from './helpers/text';
 import { PORT, LOCAL_API_BASE_URL, UTC_OFFSET } from './config';
@@ -28,10 +28,10 @@ app.listen(PORT, () => {
     const currentDateTime = Date.now();
     const formattedDate = moment(currentDateTime);
 
-    console.log(`Example app listening on port ${PORT}, started at\n${currentDateTime} - ${formattedDate}.`);
+    console.log(`Example app listening on port ${PORT}, started at\n${currentDateTime} ${formattedDate}.`);
 });
 
-// TODO: Put days into database
+// TODO: Get day counts from database
 let currentDay = 1;
 const totalDays = 30;
 const alertTime = localTime(7, 30, UTC_OFFSET);
@@ -45,10 +45,10 @@ async function sendDailyText(current, total) {
         const url = `${LOCAL_API_BASE_URL}/sms?currentDay=${current}&totalDays=${total}`;
         const response = await fetch(url);
 
+        // Update database
+        addReminder(`Today is day ${current} of ${total}. Keep it up!`);
+
         currentDay++;
-
-        console.log(`Tomorrow will be day ${currentDay}`);
-
-        return;
+        return console.log(`Tomorrow will be day ${currentDay}`);
     }
 }
