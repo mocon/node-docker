@@ -26,9 +26,8 @@ app.use('/user', user);
 app.use('/sms', sms);
 app.listen(PORT, () => {
     const currentDateTime = Date.now();
-    const formattedDate = moment(currentDateTime);
-
-    console.log(`Example app listening on port ${PORT}, started at\n${currentDateTime} ${formattedDate}.`);
+    const formattedDate = moment(currentDateTime).format('dddd, MMMM Do YYYY, h:mm:ss a');
+    console.log(`Example app listening on port ${PORT}, started\n${formattedDate}.`);
 });
 
 // TODO: Get day counts from database
